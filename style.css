@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Kanit:wght@300&family=Roboto&family=Rubik+Doodle+Shadow&display=swap');
+.scroller {
+    max-width: 1200px;
+  }
+  
+  .scroller__inner {
+    padding-block: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .scroller[data-animated="true"] {
+    overflow: hidden;
+    -webkit-mask: linear-gradient(
+      50deg,
+      transparent,
+      white 20%,
+      white 50%,
+      transparent
+    );
+    mask: linear-gradient(20deg, transparent, white 10%, white 85%, transparent);
+  }
+  
+  .scroller[data-animated="true"] .scroller__inner {
+    width: max-content;
+    flex-wrap: nowrap;
+    animation: scroll var(--_animation-duration, 40s)
+      var(--_animation-direction, forwards) linear infinite;
+  }
+  
+  .scroller[data-direction="right"] {
+    --_animation-direction: reverse;
+  }
+  
+  .scroller[data-direction="left"] {
+    --_animation-direction: forwards;
+  }
+  
+  .scroller[data-speed="fast"] {
+    --_animation-duration: 50s;
+  }
+  
+  .scroller[data-speed="slow"] {
+    --_animation-duration: 80s;
+  }
+  
+  @keyframes scroll {
+    to {
+      transform: translate(calc(-40% - 0.6rem));
+    }
+  }
+  
+  :root {
+    --clr-neutral-100: hsl(0, 0%, 100%);
+    --clr-primary-100: hsl(205, 15%, 58%);
+    --clr-primary-400: hsl(289, 25%, 27%);
+    --clr-primary-800: hsl(217, 45%, 65%);
+    --clr-primary-900: hsl(218, 33%, 9%);
+  }
+  
+  html {
+    color-scheme: dark;
+  }
+  
+  body {
+    display: grid;
+    min-block-size: 100vh;
+    place-content: center;
+    font-family: 'Rubik Doodle Shadow' , system-ui;
+    font-size: 1.125rem;
+    word-spacing: 5px;
+    letter-spacing: 2px;
+    background-color: var(--clr-primary-800);
+  }
+  img{
+    width: 250px;
+    height: 250px;
+    border-radius: 0.5rem;
+  }
+  
+  .tag-list {
+    margin: 0;
+    padding-inline: 0;
+    list-style: none;
+  }
+  
+  .tag-list li {
+    padding: 1rem;
+    background: var(--clr-primary-400);
+    border-radius: 3rem;
+    box-shadow: 0 0.2rem 1rem -0.25rem var(--clr-primary-900);
+  }
+
+  
